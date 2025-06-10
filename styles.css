@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', monospace;
+    background: linear-gradient(135deg, #D2B48C, #F5DEB3, #DEB887);
+    min-height: 100vh;
+    image-rendering: pixelated;
+}
+
+.pixel-border {
+    border: 3px solid #8B7355;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.mood-card {
+    image-rendering: pixelated;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background-size: cover;
+    background-position: center;
+}
+
+.mood-card:hover {
+    transform: scale(1.08);
+}
+
+.nav-arrow {
+    background: rgba(255,255,255,0.9);
+    border: 2px solid #8B7355;
+    color: #8B7355;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 18px;
+}
+
+.nav-arrow:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+.fullscreen-transition {
+    animation: growToFullscreen 1s ease-in-out forwards;
+}
+
+@keyframes growToFullscreen {
+    from {
+        transform: scale(1);
+        border-radius: 16px;
+    }
+    to {
+        transform: scale(20);
+        border-radius: 0;
+    }
+}
+
+.mood-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.card-stack {
+    perspective: 1000px;
+}
+
+.card-preview {
+    transform: rotateY(10deg) scale(0.85);
+    opacity: 0.7;
+}
+
+.playlist-sidebar {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    .mood-card {
+        width: 200px;
+        height: 280px;
+    }
+    
+    .card-stack {
+        gap: 16px;
+    }
+    
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    .playlist-sidebar {
+        width: 100% !important;
+        position: absolute;
+        bottom: 0;
+        height: 40%;
+        border-radius: 20px 20px 0 0;
+    }
+}
