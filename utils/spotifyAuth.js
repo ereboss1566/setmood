@@ -1,5 +1,6 @@
 const SPOTIFY_CLIENT_ID = '45d2d93041424d99a1c72ab7399dd0e6';
-const REDIRECT_URI = window.location.origin;
+const REDIRECT_URI ="https://ereboss1566.github.io/setmood/callback";
+;
 
 const spotifyAuth = {
     getAuthUrl() {
